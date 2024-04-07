@@ -1,6 +1,8 @@
 import '../assets/style.scss'
 import "@popperjs/core";
 import * as bootstrap from 'bootstrap'
+import 'normalize.css/normalize.css'
+import '@/style.css'
 
 
 

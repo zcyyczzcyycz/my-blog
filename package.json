@@ -5,7 +5,7 @@
   "type": "module",
   "description": "个人博客",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --open",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -13,7 +13,9 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
-    "vue": "^3.4.21"
+    "normalize.css": "^8.0.1",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
