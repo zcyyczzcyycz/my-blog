@@ -5,9 +5,10 @@
 body{
     width: 100vw;
     height: 100vh;
-    color: #333 !important;
+    font-weight: 500;
+    color: var(--z-primary-font-color) !important;
     font-size: 14px !important;
-    background-color:#0F0F0F !important;
+    background-color:var(--z-primary-theme) !important;
     overflow-y: overlay;
     overflow-x: hidden;
     }

@@ -4,5 +4,6 @@ import App from './App.vue'
 import plugin from './plugins'
 import router from './router'
 
+const app = createApp(App);
 
-createApp(App).use(plugin).use(router).mount('#app')
+app.use(plugin).use(router).mount('#app')

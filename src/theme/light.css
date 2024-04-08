@@ -1,0 +1,7 @@
+html {
+    --z-primary-theme: #0F0F0F;
+    --z-primary-font-color:'#fff';
+    --mask-color: #00000066;
+    --loading-primary-color: #e04960;
+    --loading-secondary-color: #531430;
+}

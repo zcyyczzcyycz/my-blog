@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import {inject} from 'vue'
 // 1. 定义路由组件.
 // 也可以从其他文件导入
 
@@ -18,5 +19,19 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes, // `routes: routes` 的缩写
 })
+
+router.beforeEach((to, from, next) => {
+  let setShowLoading = inject('setShowLoading');
+   setShowLoading(true);
+   setTimeout(() => {
+    next()
+   }, 2000);
+})
+
+router.afterEach((to, from) => {
+  let setShowLoading = inject('setShowLoading');
+   setShowLoading(false);
+})
+
 
 export default router;
