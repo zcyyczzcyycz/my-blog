@@ -12,9 +12,48 @@
   <style>
     html{
       --z-primary-theme: #0F0F0F;
-    --loading-primary-color: #e04960;
-    --loading-secondary-color: #531430;
+      --loading-primary-color: #ff359b;
+    --loading-secondary-color: #00dfff;
+    --loading-last-color: #98FB98;
     }
+    section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+      background: linear-gradient(to bottom, var(--z-secondary-theme), var(--z-primary-theme));
+}
+ 
+section .color {
+    position: absolute;
+}
+ 
+section .color:nth-child(1) {
+    top: -350px;
+    width: 600px;
+    height: 600px;
+    background: #ff359b;
+}
+ 
+section .color:nth-child(2) {
+    bottom: -150px;
+    left: 100px;
+    width: 500px;
+    height: 500px;
+    background: #98FB98;
+}
+ 
+section .color:nth-child(3) {
+    bottom: -50px;
+    right: 100px;
+    width: 300px;
+    height: 300px;
+    background: #00dfff;
+}
+ 
+section .color {
+    filter: blur(150px);
+}
     .screen-animate{
       position: fixed;
       width: 100vw;
@@ -110,6 +149,10 @@
     <div id="app">
       <!-- 首屏加载动画 -->
       <div class="screen-animate">
+        <section>
+          <div class="color"></div>
+          <div class="color"></div>
+          <div class="color"></div>
         <div class="loader">
           <span></span>
           <span></span>
@@ -127,6 +170,7 @@
           <span></span>
           <span></span>
         </div>
+        <section>
       </div>
     </div>
     <script type="module" src="/src/main.js"></script>

@@ -8,7 +8,11 @@ import {inject} from 'vue'
 // 我们后面再讨论嵌套路由。
 const routes = [
   { path: '/', redirect:'/home' },
-  { path: '/home', component: import('@/views/home/index.vue') },
+  { path: '/home', component: import('@/views/home/index.vue'),children:[
+    { path: '', component: import('@/views/home/children/index.vue') },
+  ]},
+  { path: '/login', component: import('@/views/login/index.vue') },
+  { path: '/:catchAll(.*)', component: import('@/views/404/index.vue') },
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置

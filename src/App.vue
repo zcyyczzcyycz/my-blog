@@ -20,14 +20,15 @@
 
 <script setup>
 import '@/utils/mouse-click.js'
-import {onMounted,inject} from 'vue'
-
-let showLoading = inject('showLoading')()
+import {onMounted,inject,ref,watch} from 'vue'
+import {useRoute} from 'vue-router'
 
 onMounted(() => {
   import('@/utils/mouse-follow.js')
 }
 )
+
+let showLoading = inject('showLoading')()
 
 
 </script>
@@ -40,5 +41,6 @@ onMounted(() => {
     padding-right: 0;
   }
  }
+
 
 </style>

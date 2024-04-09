@@ -1,7 +1,10 @@
 html {
     --z-primary-theme: #0F0F0F;
-    --z-primary-font-color:'#fff';
+    --z-secondary-theme: #555;
+    --z-primary-font-color:#fff;
     --mask-color: #00000066;
-    --loading-primary-color: #e04960;
-    --loading-secondary-color: #531430;
+    --loading-primary-color: #ff359b;
+    --loading-secondary-color: #00dfff;
+    --loading-last-color: #98FB98;
+    --login-box-mask:#0F0F0F16;
 }
