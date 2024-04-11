@@ -34,7 +34,7 @@ let showLoading = inject('showLoading')()
 </script>
 
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @media (max-width: 768px) { 
   .container-lg{
     padding-left: 0;

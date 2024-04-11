@@ -1,6 +1,10 @@
+*{
+    transition: all 0.3s;
+}
 :root{
     overflow-y: overlay;
     overflow-x: hidden;
+    --is-hover:false;
 }
 body{
     width: 100vw;
@@ -45,4 +49,12 @@ body{
     width: 100%;
     z-index: -1; 
 }
+
+/* 只有支持hover，媒体查询才会生效 */
+@media (any-hover: hover){
+    html{
+      --is-hover:true !important;
+    }
+}
+
 
