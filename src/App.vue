@@ -9,6 +9,13 @@
  </teleport>
 
 
+ <div :class="['alert', 'alert-warning', 'animate__animated', 'animate__bounceInDown',(alertMode=='error'? 'my-alert-error' : 'my-alert-success')]" id="my-alert" role="alert" v-show="alertShow">
+  <i :class="`bi-emoji-${(alertMode=='error'? 'frown' : 'smile')}`" :style="{color:(alertMode=='error'? '#922B21' : '#1F618D'),fontSize:'35px',marginRight:'25px'}"></i> {{context}}
+ </div>
+
+<button type="button"  @click="setContext('hello','success')">setContext</button>
+
+
 		 <!-- 路由出口 -->
   <!-- 路由匹配到的组件将渲染在这里 -->
   <div class="container-lg">
@@ -29,12 +36,35 @@ onMounted(() => {
 )
 
 let showLoading = inject('showLoading')()
-
+let context = inject('contextProvide').context()
+let setContext = inject('contextProvide').setContext
+let alertShow = inject('contextProvide').alertShow
+let alertMode = inject('contextProvide').alertMode
 
 </script>
 
 
 <style lang="scss" scoped>
+#my-alert{
+  display:flex;
+  align-items:center;
+  color:var(--z-primary-font-color);
+  font-size:20px;
+  position:fixed;
+  z-index:999;
+  top:20px;
+  left:25%;
+  width:50vw;
+  text-align:center;
+  border:0;
+}
+.my-alert-error{
+  background:var(--loading-primary-color);
+}
+.my-alert-success{
+  background:var(--loading-secondary-color);
+}
+
 @media (max-width: 768px) { 
   .container-lg{
     padding-left: 0;

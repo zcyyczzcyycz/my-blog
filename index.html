@@ -1,158 +1,184 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>blog</title>
-    <!-- 看板娘 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-  </head>
-  <style>
-    html{
-      --z-primary-theme: #0F0F0F;
-      --loading-primary-color: #ff359b;
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>blog</title>
+  <link rel="stylesheet" href="/theme/dark.css">
+  <!-- 看板娘 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+</head>
+<style>
+  html {
+    --z-primary-theme: #0F0F0F;
+    --loading-primary-color: #ff359b;
     --loading-secondary-color: #00dfff;
     --loading-last-color: #98FB98;
-    }
-    section {
+  }
+
+  section {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-      background: linear-gradient(to bottom, var(--z-secondary-theme), var(--z-primary-theme));
-}
- 
-section .color {
+    background: linear-gradient(to bottom, var(--z-secondary-theme), var(--z-primary-theme));
+  }
+
+  section .color {
     position: absolute;
-}
- 
-section .color:nth-child(1) {
+  }
+
+  section .color:nth-child(1) {
     top: -350px;
     width: 600px;
     height: 600px;
     background: #ff359b;
-}
- 
-section .color:nth-child(2) {
+  }
+
+  section .color:nth-child(2) {
     bottom: -150px;
     left: 100px;
     width: 500px;
     height: 500px;
     background: #98FB98;
-}
- 
-section .color:nth-child(3) {
+  }
+
+  section .color:nth-child(3) {
     bottom: -50px;
     right: 100px;
     width: 300px;
     height: 300px;
     background: #00dfff;
-}
- 
-section .color {
+  }
+
+  section .color {
     filter: blur(150px);
-}
-    .screen-animate{
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      background-color:var(--z-primary-theme);
-      top: 0;
-      left: 0;
-    }
-    .loader {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin: auto;
-  width: 175px;
-  height: 100px;
-}
-.loader span {
-  display: block;
-  background: var(--loading-primary-color);
-  width: 7px;
-  height: 100%;
-  border-radius: 14px;
-  margin-right: 5px;
-  float: left;
-}
-.loader span:last-child {
-  margin-right: 0px;
-}
-.loader span:nth-child(1) {
-  animation: load 2.5s 1.4s infinite linear;
-}
-.loader span:nth-child(2) {
-  animation: load 2.5s 1.2s infinite linear;
-}
-.loader span:nth-child(3) {
-  animation: load 2.5s 1s infinite linear;
-}
-.loader span:nth-child(4) {
-  animation: load 2.5s 0.8s infinite linear;
-}
-.loader span:nth-child(5) {
-  animation: load 2.5s 0.6s infinite linear;
-}
-.loader span:nth-child(6) {
-  animation: load 2.5s 0.4s infinite linear;
-}
-.loader span:nth-child(7) {
-  animation: load 2.5s 0.2s infinite linear;
-}
-.loader span:nth-child(8) {
-  animation: load 2.5s 0s infinite linear;
-}
-.loader span:nth-child(9) {
-  animation: load 2.5s 0.2s infinite linear;
-}
-.loader span:nth-child(10) {
-  animation: load 2.5s 0.4s infinite linear;
-}
-.loader span:nth-child(11) {
-  animation: load 2.5s 0.6s infinite linear;
-}
-.loader span:nth-child(12) {
-  animation: load 2.5s 0.8s infinite linear;
-}
-.loader span:nth-child(13) {
-  animation: load 2.5s 1s infinite linear;
-}
-.loader span:nth-child(14) {
-  animation: load 2.5s 1.2s infinite linear;
-}
-.loader span:nth-child(15) {
-  animation: load 2.5s 1.4s infinite linear;
-}
-@keyframes load {
-  0% {
-    background: var(--loading-secondary-color);
-    transform: scaleY(0.08);
   }
-  50% {
+
+  .screen-animate {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--z-primary-theme);
+    top: 0;
+    left: 0;
+  }
+
+  .loader {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 175px;
+    height: 100px;
+  }
+
+  .loader span {
+    display: block;
     background: var(--loading-primary-color);
-        
-   transform: scaleY(1);
+    width: 7px;
+    height: 100%;
+    border-radius: 14px;
+    margin-right: 5px;
+    float: left;
   }
-  100% {
-    background: var(--loading-secondary-color);    
-    transform: scaleY(0.08);
+
+  .loader span:last-child {
+    margin-right: 0px;
   }
-}
-  </style>
-  <body>
-    <div id="app">
-      <!-- 首屏加载动画 -->
-      <div class="screen-animate">
-        <section>
-          <div class="color"></div>
-          <div class="color"></div>
-          <div class="color"></div>
+
+  .loader span:nth-child(1) {
+    animation: load 2.5s 1.4s infinite linear;
+  }
+
+  .loader span:nth-child(2) {
+    animation: load 2.5s 1.2s infinite linear;
+  }
+
+  .loader span:nth-child(3) {
+    animation: load 2.5s 1s infinite linear;
+  }
+
+  .loader span:nth-child(4) {
+    animation: load 2.5s 0.8s infinite linear;
+  }
+
+  .loader span:nth-child(5) {
+    animation: load 2.5s 0.6s infinite linear;
+  }
+
+  .loader span:nth-child(6) {
+    animation: load 2.5s 0.4s infinite linear;
+  }
+
+  .loader span:nth-child(7) {
+    animation: load 2.5s 0.2s infinite linear;
+  }
+
+  .loader span:nth-child(8) {
+    animation: load 2.5s 0s infinite linear;
+  }
+
+  .loader span:nth-child(9) {
+    animation: load 2.5s 0.2s infinite linear;
+  }
+
+  .loader span:nth-child(10) {
+    animation: load 2.5s 0.4s infinite linear;
+  }
+
+  .loader span:nth-child(11) {
+    animation: load 2.5s 0.6s infinite linear;
+  }
+
+  .loader span:nth-child(12) {
+    animation: load 2.5s 0.8s infinite linear;
+  }
+
+  .loader span:nth-child(13) {
+    animation: load 2.5s 1s infinite linear;
+  }
+
+  .loader span:nth-child(14) {
+    animation: load 2.5s 1.2s infinite linear;
+  }
+
+  .loader span:nth-child(15) {
+    animation: load 2.5s 1.4s infinite linear;
+  }
+
+  @keyframes load {
+    0% {
+      background: var(--loading-secondary-color);
+      transform: scaleY(0.08);
+    }
+
+    50% {
+      background: var(--loading-primary-color);
+
+      transform: scaleY(1);
+    }
+
+    100% {
+      background: var(--loading-secondary-color);
+      transform: scaleY(0.08);
+    }
+  }
+</style>
+
+<body>
+  <div id="app">
+    <!-- 首屏加载动画 -->
+    <div class="screen-animate">
+      <section>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
         <div class="loader">
           <span></span>
           <span></span>
@@ -171,16 +197,17 @@ section .color {
           <span></span>
         </div>
         <section>
-      </div>
     </div>
-    <script type="module" src="/src/main.js"></script>
-    <script src="https://cdn.bootcss.com/particles.js/2.0.0/particles.js" defer></script>
-    <!-- 粒子三角 -->
-    <script src="/particle.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-    <!-- 看板娘 -->
-<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
-  </body>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+  <script src="https://cdn.bootcss.com/particles.js/2.0.0/particles.js" defer></script>
+  <!-- 粒子三角 -->
+  <script src="/particle.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+  <!-- 看板娘 -->
+  <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+</body>
+
 </html>
