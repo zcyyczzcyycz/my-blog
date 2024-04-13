@@ -13,8 +13,6 @@
   <i :class="`bi-emoji-${(alertMode=='error'? 'frown' : 'smile')}`" :style="{color:(alertMode=='error'? '#922B21' : '#1F618D'),fontSize:'35px',marginRight:'25px'}"></i> {{context}}
  </div>
 
-<button type="button"  @click="setContext('hello','success')">setContext</button>
-
 
 		 <!-- 路由出口 -->
   <!-- 路由匹配到的组件将渲染在这里 -->

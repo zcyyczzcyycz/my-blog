@@ -1,87 +1,8 @@
 <template>
   <div id="home">
-    <!-- <div class="container-fluid nav">
-      <div class="nav-left">
-        <img
-          :src="logo"
-          class="img-fluid"
-          alt="blog"
-          style="width: 70px"
-          @click="goHome"
-        />
-      </div>
-      <div class="nav-right">
-        <div class="theme" @click="changeTheme">
-          <i
-            :class="[`bi-${lconStyle.name}`,'hvr-grow']"
-            :style="{ color: lconStyle.color }"
-          ></i>
-        </div>
-        <nav class="navbar navbar-expand-lg">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-          <div class="container-fluid" style="height:100%;">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item mx-3">
-                  <a
-                    class="nav-link active hvr-underline-from-left"
-                    aria-current="page"
-                    href="#"
-                    >Home</a
-                  >
-                </li>
-                <li class="nav-item mx-3">
-                  <a
-                    class="nav-link active hvr-underline-from-left"
-                    aria-current="page"
-                    href="#"
-                    >Home</a
-                  >
-                </li>
-                <li class="nav-item mx-3">
-                  <a
-                    class="nav-link active hvr-underline-from-left"
-                    aria-current="page"
-                    href="#"
-                    >Home</a
-                  >
-                </li>
-                <li class="nav-item mx-3">
-                  <a
-                    class="nav-link active hvr-underline-from-left"
-                    aria-current="page"
-                    href="#"
-                    >Home</a
-                  >
-                </li>
-                <li class="nav-item mx-3">
-                  <a
-                    class="nav-link active hvr-underline-from-left"
-                    aria-current="page"
-                    href="#"
-                    >Home</a
-                  >
-                </li>
-                <li class="nav-item mx-3">
-                  <a
-                    class="nav-link active hvr-underline-from-left"
-                    aria-current="page"
-                    href="#"
-                    >Home</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div> -->
-
-
     <nav class="navbar navbar-expand-lg">
 <div class="container-fluid">
+<!-- 左侧图标 -->
   <div class="nav-left">
         <img
           :src="logo"
@@ -91,18 +12,21 @@
           @click="goHome"
         />
       </div>
+<!-- 按钮 -->
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
+<span class="navbar-toggler-icon nav-link"></span>
 </button>
+
+<!-- 右侧菜单 -->
 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item mx-3">
-                  <a
-                    class="nav-link active hvr-underline-from-left"
-                    aria-current="page"
-                    href="#"
-                    >Home</a
-                  >
+    <li class="nav-item mx-3 theme" @click="changeTheme">
+
+          <i
+            :class="[`bi-${lconStyle.name}`,'hvr-grow']"
+            :style="{ color: lconStyle.color }"
+          ></i>
+    
                 </li>
                 <li class="nav-item mx-3">
                   <a
@@ -217,6 +141,21 @@ let changeTheme = () => {
     }
   }
 }
+:deep(#navbarTogglerDemo02){
+  justify-content: flex-end !important;
+  color: var(--z-primary-font-color);
+  font-size: 25px;
+}
+
+:deep(.navbar){
+  min-height: 120px;
+  align-items: center;
+}
+:deep(.navbar-collapse){
+  flex-grow: 0;
+}
+
+
 #home {
   .nav-link {
     color: var(--z-primary-font-color);
@@ -226,16 +165,12 @@ let changeTheme = () => {
         cursor: pointer;
       }
     }
-    .nav-right {
-      display: flex;
-      align-items: center;
-      .theme {
+    .theme {
         i {
           cursor: pointer;
           font-size: 30px;
         }
       }
-    }
   }
 
 </style>
