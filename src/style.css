@@ -1,10 +1,16 @@
+@font-face {
+    font-family: 'LongCang';
+    src: url('./fonts/summer.otf') format("opentype");
+  }
 
 :root{
     overflow-y: overlay;
     overflow-x: hidden;
     --is-hover:false;
+    font-family: 'LongCang',sans-serif;
 }
 body{
+    scroll-behavior: smooth !important;
     width: 100vw;
     height: 100vh;
     font-weight: 500;

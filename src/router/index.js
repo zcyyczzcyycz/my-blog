@@ -27,9 +27,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   let setShowLoading = inject('setShowLoading');
    setShowLoading(true);
-   setTimeout(() => {
-    next()
-   }, 2000);
+   next()
 })
 
 router.afterEach((to, from) => {

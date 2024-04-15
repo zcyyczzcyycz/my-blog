@@ -2,7 +2,6 @@ import '../assets/style.scss'
 import "@popperjs/core";
 import {Alert} from 'bootstrap'
 import 'normalize.css/normalize.css'
-import '@/style.css'
 import '@/utils/axios.js'
 import 'animate.css';
 import { defineAsyncComponent,ref } from 'vue';

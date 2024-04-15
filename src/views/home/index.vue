@@ -14,15 +14,15 @@
       </div>
 <!-- 按钮 -->
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon nav-link"></span>
+<i class="bi bi-justify"></i>
 </button>
 
 <!-- 右侧菜单 -->
 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-    <li class="nav-item mx-3 theme" @click="changeTheme">
-
+    <li class="nav-item mx-3 theme">
           <i
+            @click="changeTheme"
             :class="[`bi-${lconStyle.name}`,'hvr-grow']"
             :style="{ color: lconStyle.color }"
           ></i>
@@ -33,7 +33,7 @@
                     class="nav-link active hvr-underline-from-left"
                     aria-current="page"
                     href="#"
-                    >Home</a
+                    >首页</a
                   >
                 </li>
                 <li class="nav-item mx-3">
@@ -76,6 +76,11 @@
 
     <!-- 路由 -->
     <router-view></router-view>
+
+    <!-- 返回顶部 -->
+    <div class="toTop" @click="toTop" v-show="showToTop">
+      <i class="bi bi-arrow-up"></i>
+    </div>
   </div>
 </template>
 
@@ -84,12 +89,29 @@ import blogImg from "@/assets/images/blog-light.png";
 import { useRouter } from "vue-router";
 import { ref, onMounted } from "vue";
 
+// 节流阀变量
+let control = true;
+// 是否展示返回顶部
+let showToTop = ref(false);
+
 onMounted(() => {
   const oLink = document.createElement("link");
   const oHead = document.querySelector("head");
   oLink.rel = "stylesheet";
   oLink.id = "theme-link";
   oHead.append(oLink);
+
+  document.body.addEventListener('scroll',function(e){
+    if(!control) return;
+    control = false;
+    if (this.scrollTop>this.clientHeight) {
+      showToTop.value = true;
+    }else{
+    showToTop.value = false;
+    }
+    control = true;
+  }
+  )
 });
 
 let logo = ref(blogImg);
@@ -128,6 +150,16 @@ let changeTheme = () => {
     lconStyle.value.name = "moon";
   }
 };
+
+// 返回顶部
+let toTop = () => {
+  let oBody = document.body;
+  oBody.scrollTop = 0;
+}
+
+
+
+
 </script>
 
 <style scoped lang="scss">
@@ -154,6 +186,11 @@ let changeTheme = () => {
 :deep(.navbar-collapse){
   flex-grow: 0;
 }
+:deep(.navbar-toggler){
+  outline: 0 !important;
+  font-size: 25px;
+  color: var(--z-primary-font-color);
+}
 
 
 #home {
@@ -167,9 +204,36 @@ let changeTheme = () => {
     }
     .theme {
         i {
+         color: var(--z-primary-font-color);
           cursor: pointer;
           font-size: 30px;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          text-align: center;
+          line-height: 60px;
+          &:hover{
+            background: var(--z-secondary-theme); 
+           transition: background .3s;
+          }
         }
+      }
+      .toTop{
+        position: fixed;
+        bottom: 3%;
+        right: 3%;  
+        border: 2px solid var(--z-primary-font-color);      
+        color: var(--z-primary-font-color);
+          font-size: 30px;
+          width: 60px;
+          height: 60px;
+          text-align: center;
+          line-height: 60px;
+         border-radius: 20px;
+         &:hover{
+            background: var(--z-secondary-theme); 
+           transition: background .3s;
+          }
       }
   }
 
