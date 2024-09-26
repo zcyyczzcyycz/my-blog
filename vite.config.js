@@ -6,6 +6,7 @@ const Timestamp = new Date().getTime()
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base:'./',
   plugins: [vue()],
   resolve: {
     alias: {
@@ -24,5 +25,11 @@ export default defineConfig({
       },
     }
   },
+
+  build:{
+    target:'es2015'
+  }
+  
+  
 
 })

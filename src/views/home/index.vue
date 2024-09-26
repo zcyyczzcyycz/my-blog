@@ -30,6 +30,7 @@
                 </li>
                 <li class="nav-item mx-3">
                   <a
+                  @click.prevent="goHome"
                     class="nav-link active hvr-underline-from-left"
                     aria-current="page"
                     href="#"
@@ -38,10 +39,11 @@
                 </li>
                 <li class="nav-item mx-3">
                   <a
+                  @click.prevent="goLogin"
                     class="nav-link active hvr-underline-from-left"
                     aria-current="page"
                     href="#"
-                    >Home</a
+                    >登录</a
                   >
                 </li>
                 <li class="nav-item mx-3">
@@ -95,6 +97,8 @@ let control = true;
 let showToTop = ref(false);
 
 onMounted(() => {
+  console.log(1122);
+  
   const oLink = document.createElement("link");
   const oHead = document.querySelector("head");
   oLink.rel = "stylesheet";
@@ -120,6 +124,10 @@ const router = useRouter();
 let goHome = () => {
   router.push("/home");
 };
+let goLogin = () => {
+  router.push("/login");
+};
+
 
 let lconStyle = ref({
   name: "moon",

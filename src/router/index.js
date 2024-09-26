@@ -1,5 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import {inject} from 'vue'
+
+import Home from '../views/home/index.vue'
+import HomeChildren from '../views/home/children/index.vue'
+import Login from '../views/login/index.vue'
+import ErrorPage from '../views/404/index.vue'
 // 1. 定义路由组件.
 // 也可以从其他文件导入
 
@@ -8,11 +13,11 @@ import {inject} from 'vue'
 // 我们后面再讨论嵌套路由。
 const routes = [
   { path: '/', redirect:'/home' },
-  { path: '/home', component: import('@/views/home/index.vue'),children:[
-    { path: '', component: import('@/views/home/children/index.vue') },
+  { path: '/home', component: Home,children:[
+    { path: '', component: HomeChildren },
   ]},
-  { path: '/login', component: import('@/views/login/index.vue') },
-  { path: '/:catchAll(.*)', component: import('@/views/404/index.vue') },
+  { path: '/login', component: Login },
+  { path: '/:catchAll(.*)', component: ErrorPage },
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置
